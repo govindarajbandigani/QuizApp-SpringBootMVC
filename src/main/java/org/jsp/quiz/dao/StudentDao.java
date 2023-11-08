@@ -5,9 +5,11 @@ import java.util.List;
 import org.jsp.quiz.dto.Batch;
 import org.jsp.quiz.dto.QuizTest;
 import org.jsp.quiz.dto.Student;
+import org.jsp.quiz.dto.StudentResult;
 import org.jsp.quiz.repository.BatchRepository;
 import org.jsp.quiz.repository.QuizTestRepository;
 import org.jsp.quiz.repository.StudentRepository;
+import org.jsp.quiz.repository.StudentResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +24,9 @@ public class StudentDao {
 
 	@Autowired
 	QuizTestRepository testRepository;
+	
+	@Autowired
+	StudentResultRepository resultRepository;
 
 	
 	public void save(Student student) {
@@ -60,6 +65,14 @@ public class StudentDao {
 
 	public List<QuizTest> fetchAllActiveTests(List<String> list) {
 		return testRepository.findByStatusTrueAndBatchCodeIn(list);
+	}
+	
+	public QuizTest findTestById(int id) {
+		return testRepository.findById(id).orElse(null);
+	}
+
+	public void save(StudentResult result) {
+		resultRepository.save(result);
 	}
 
 

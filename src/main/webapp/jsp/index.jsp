@@ -9,7 +9,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url("../images/bg1.jpg");
+	background-image: url("/images/bg1.jpg");
 	background-size: cover;
 }
 
@@ -100,7 +100,7 @@ p.copyright {
 		<header>
 			<h2>${pass}</h2>
 			<h3>${fail}</h3>
-			<h1>Welcome to Quiz </h1>
+			<h1>Welcome to Quiz Application</h1>
 		</header>
 		<main>
 			<div class="buttons">
